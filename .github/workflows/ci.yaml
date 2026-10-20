@@ -16,6 +16,6 @@ jobs:
       - name: Set up Python
         run: uv python install
       - name: Run runf checks
-        run: ruff check
+        run: uv run ruff check
       - name: Run pytest tests
         run: uv run pytest
