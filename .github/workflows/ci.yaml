@@ -1,0 +1,21 @@
+# runs pytest on every push & PR
+# ruff + pytest, permissions: contents: read
+name: CI
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+      - name: Set up Python
+        run: uv python install
+      - name: Run runf checks
+        run: ruff check
+      - name: Run pytest tests
+        run: uv run pytest
