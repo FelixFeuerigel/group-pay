@@ -20,3 +20,10 @@ build-backend = "uv_build"
 
 [tool.fastapi]
 entrypoint = "src.group_pay.app.main:app"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
