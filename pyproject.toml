@@ -1,0 +1,22 @@
+[project]
+name = "group-pay"
+version = "0.1.0"
+description = "Learning project for Secure Coding lecture"
+readme = "README.md"
+authors = [
+    { name = "FelixFeuerigel", email = "76600556+FelixFeuerigel@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.152.0",
+]
+
+[project.scripts]
+group-pay = "group_pay:main"
+
+[build-system]
+requires = ["uv_build>=0.11.21,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.fastapi]
+entrypoint = "src.group_pay.app.main:app"
